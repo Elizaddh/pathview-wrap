@@ -11,10 +11,10 @@ pathview.2 <- function( run ,diff.tool, gene.data= cnts, ref, samp, gsets, pathw
         print("gage run successful")
         print("now pathview")
         if ( length(path.ids) <= 6 )
-        {pv.out.list <- sapply(path.ids, function(pid) pathview( gene.data = logfoldchange, 
+        {pv.out.list <- sapply(path.ids, function(pid) pathview::pathview( gene.data = logfoldchange, 
                                     pathway.id = pid, out.suffix=diff.tool))}
         if(length(path.ids) > 6)
-        {pv.out.list <- sapply(path.ids[1:6], function(pid) pathview( gene.data = logfoldchange, 
+        {pv.out.list <- sapply(path.ids[1:6], function(pid) pathview::pathview( gene.data = logfoldchange, 
                                                                  pathway.id = pid, out.suffix=diff.tool))}
      
     }
@@ -25,17 +25,17 @@ pathview.2 <- function( run ,diff.tool, gene.data= cnts, ref, samp, gsets, pathw
             path.ids <- run_path_analysis(gene.data, gsets )
             print("now pathview")
             if ( length(path.ids) <6 )
-            {pv.out.list <- sapply(path.ids, function(pid) pathview( gene.data = gene.data, 
+            {pv.out.list <- sapply(path.ids, function(pid) pathview::pathview( gene.data = gene.data, 
                                                                      pathway.id = pid, out.suffix=diff.tool))}
             if(length(path.ids) > 6)
             {
                 print("pids are more than 6")
-                pv.out.list <- sapply(path.ids[1:6], function(pid) pathview( gene.data =gene.data, 
+                pv.out.list <- sapply(path.ids[1:6], function(pid) pathview::pathview( gene.data =gene.data, 
                                                                           pathway.id = pid,species = "hsa", out.suffix=diff.tool))}
             
         }
         else{
-             pathview( gene.data = gene.data,  pathway.id = pathway.id , out.suffix=diff.tool)}
+            pathview::pathview( gene.data = gene.data,  pathway.id = pathway.id , out.suffix=diff.tool)}
             
             
         }
