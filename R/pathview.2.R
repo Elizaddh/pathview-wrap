@@ -1,6 +1,5 @@
 #' @export
-# source("~/Documents/Research/rundifftool.R")
-# source("~/Documents/Research/run_path_analysis.R")
+
 pathview.2 <- function( run ,diff.tool, gene.data= cnts, ref, samp, gsets, pathway.id,  both.dirs = list(gene = T, cpd = T))
 {
     if (run =="complete")
