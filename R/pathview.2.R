@@ -2,7 +2,7 @@
 
 pathview.2 <- function( run ,diff.tool, gene.data= cnts, ref, samp, gsets, pathway.id,  both.dirs = list(gene = T, cpd = T))
 {
-    library(pathview)
+    #library(pathview)
     if (run =="complete")
     {
         logfoldchange <- rundifftool(diff.tool, gene.data, ref, samp)
