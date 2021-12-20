@@ -1,3 +1,4 @@
+#' this is a function to run different diff expression analysis tools
 #' @export
 rundifftool <- function(diff.tool, gene.data, ref, samp){
     grp.idx = NULL
