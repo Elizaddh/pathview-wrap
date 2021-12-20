@@ -2,46 +2,81 @@
 #' @export
 
 
-pathview.2 <- function( run ,diff.tool, gene.data= cnts, ref, samp, gsets, pathway.id,  both.dirs = list(gene = T, cpd = T))
+pathview.2 <- function( run ,diff.tool, gene.data= cnts, ref, samp, gsets, pathway.id,  both.dirs = list(gene = T, cpd = T), plot.gene.data, outname)
 {
     library(pathview)
     if (run =="complete")
     {
         logfoldchange <- rundifftool(diff.tool, gene.data, ref, samp)
         print("diff tool run successful")
-        path.ids <- run_path_analysis(logfoldchange, gsets )
+        fc.kegg.p <- run_path_analysis(logfoldchange, gsets)#, gene.data = gene.data, ref, samp, plot.gene.data = T )
         print("gage run successful")
         print("now pathview")
-        if ( length(path.ids) <= 6 )
-        {pv.out.list <- sapply(path.ids, function(pid) pathview( gene.data = logfoldchange, 
-                                    pathway.id = pid, out.suffix=diff.tool))}
-        if(length(path.ids) > 6)
-        {pv.out.list <- sapply(path.ids[1:6], function(pid) pathview( gene.data = logfoldchange, 
-                                                                 pathway.id = pid, out.suffix=diff.tool))}
-     
-    }
+        
+        path.ids.2<- rownames(fc.kegg.p$greater)[fc.kegg.p$greater[, "q.val"] < 0.1 &
+            + !is.na(fc.kegg.p$greater[, "q.val"])]
+         
+        if(length(fc.kegg.p) > 2){
+            path.ids.l <- rownames(fc.kegg.p$less)[fc.kegg.p$less[, "q.val"] < 0.1 &
+                + !is.na(fc.kegg.p$less[,"q.val"])]
+            path.ids.2 <- substr(c(path.ids.2, path.ids.l), 1, 8)
+        }
+          #visualize pathway  
+       pv.out.list <- sapply(na.omit(path.ids.2[1:6]), function(pid) pathview( gene.data = logfoldchange, 
+                                                                 pathway.id = pid, out.suffix=diff.tool))
+       }
+            
+            
+    
     
     else {
         if(is.null(pathway.id)){
             print("starting with gage analysis")
-            path.ids <- run_path_analysis(gene.data, gsets )
+            fc.kegg.p <- run_path_analysis(gene.data, gsets)#, gene.data = gene.data, ref, samp, plot.gene.data = T  )
             print("now pathview")
-            if ( length(path.ids) <6 )
-            {pv.out.list <- sapply(path.ids, function(pid) pathview( gene.data = gene.data, 
-                                                                     pathway.id = pid, out.suffix=diff.tool))}
-            if(length(path.ids) > 6)
-            {
-                print("pids are more than 6")
-                pv.out.list <- sapply(path.ids[1:6], function(pid) pathview( gene.data =gene.data, 
-                                                                          pathway.id = pid,species = "hsa", out.suffix=diff.tool))}
+            path.ids.2<- rownames(fc.kegg.p$greater)[fc.kegg.p$greater[, "q.val"] < 0.1 &
+                                                         + !is.na(fc.kegg.p$greater[, "q.val"])]
             
-        }
-        else{
-             pathview( gene.data = gene.data,  pathway.id = pathway.id , out.suffix=diff.tool)}
-            
+            if(length(fc.kegg.p) > 2){
+                path.ids.l <- rownames(fc.kegg.p$less)[fc.kegg.p$less[, "q.val"] < 0.1 &
+                                                           + !is.na(fc.kegg.p$less[,"q.val"])]
+                path.ids.2 <- substr(c(path.ids.2, path.ids.l), 1, 8)
+                
+            #visualize pathway  
+            pv.out.list <- sapply(na.omit(path.ids.2[1:6]), function(pid) pathview( gene.data =  gene.data, 
+                                                                                   pathway.id = pid, out.suffix=diff.tool))}
+        
             
         }
         
-        
+        else {
+             pathview( gene.data = gene.data,  pathway.id = pathway.id , out.suffix=diff.tool)
+            }
+            
+            
     }
-    
+
+        #plot data
+       
+        if (plot.gene.data==T &(run =="complete" | is.null(pathway.id))  ){
+            gs=unique(unlist(gsets[rownames(fc.kegg.p$greater)[1:3]]))
+            essData=essGene(gs,gene.data , ref =ref, samp =samp)
+            for (gs in rownames(fc.kegg.p$greater)[1:3]) {
+                outname = gsub(" |:|/", "_", substr(gs, 10, 100))
+                geneData(genes = gsets[[gs]], exprs = essData, ref = ref,
+                         samp = samp, outname = outname, txt = T, heatmap = T,
+                         Colv = F, Rowv = F, dendrogram = "none", limit = 3, scatterplot = T)
+            }
+            if(length(fc.kegg.p) > 2){
+                gs=unique(unlist(gsets[rownames(fc.kegg.p$lesser)[1:3]]))
+                essData=essGene(gs,gene.data , ref =ref, samp =samp)
+                for (gs in rownames(fc.kegg.p$lesser)[1:3]) {
+                    outname = gsub(" |:|/", "_", substr(gs, 10, 100))
+                    geneData(genes = gsets[[gs]], exprs = essData, ref = ref,
+                             samp = samp, outname = outname, txt = T, heatmap = T,
+                             Colv = F, Rowv = F, dendrogram = "none", limit = 3, scatterplot = T)
+            }
+             
+            }
+        }
+}
