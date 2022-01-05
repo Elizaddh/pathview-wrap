@@ -1,0 +1,51 @@
+#tutorial 
+
+#Install pathview from github
+
+library(devtools)
+install_github("Elizaddh/pathview")
+
+#load pathview.2 library
+library(pathview.2)
+
+#load gene data and kegg genesets
+
+require(gageData)
+data(hnrnp.cnts)
+cnts=hnrnp.cnts
+dim(cnts) #[1] 22932 8
+
+sel.rn=rowSums(cnts) != 0
+cnts=cnts[sel.rn,]
+dim(cnts)
+
+#library(gage)
+reference_indx=5:8
+samp_indx=1:4
+
+data(kegg.gs)
+
+
+#run pathview.2 function
+# when run is not complete and pathway.id is not given, gage is run to find pathways and then pathview to visualize pathways
+ pathview.2(run = "complete2"  , both.dirs = list(gene = T, cpd = T), diff.tool = "edgeR", gene.data= cnts, ref = reference_indx, samp=samp_indx,
+            pathway.id = NULL, gsets = kegg.gs, plot.gene.data = T, outname = "~/Documents/Research/Results/" )#outname might not work
+# 
+# 
+#when pathway.id is given, that pathway is visualized
+ pathview.2(run = "complete2"  , both.dirs = list(gene = T, cpd = T), diff.tool = "edgeR", gene.data= cnts, ref = reference_indx, samp=samp_indx,
+            pathway.id = 04145, gsets = kegg.gs,plot.gene.data = T ,outname = "~/Documents/Research/Results/" )
+
+# When run is complete, differential analysis, pathway analysis and visualization is carried out
+#limma is used for differential analysis
+ pathview.2(run = "complete"  , both.dirs = list(gene = T, cpd = T), diff.tool = "limma", gene.data= cnts, ref = reference_indx, samp=samp_indx,
+            pathway.id = NULL, gsets = kegg.gs,plot.gene.data = T ,outname = "~/Documents/Research/Results/" )
+# 
+# edgeR is used for differential analysis
+pathview.2(run = "complete"  , both.dirs = list(gene = T, cpd = T), diff.tool = "edgeR", gene.data= cnts, ref = reference_indx, samp=samp_indx,
+           pathway.id = NULL, gsets = kegg.gs,plot.gene.data = T )
+# 
+# deseq2 is used for analysis
+ pathview.2(run = "complete"  , both.dirs = list(gene = T, cpd = T), diff.tool = "deseq2", gene.data= cnts, ref = reference_indx, samp=samp_indx,
+           pathway.id = NULL, gsets = kegg.gs,plot.gene.data = T )
+
