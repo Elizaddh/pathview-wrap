@@ -25,6 +25,8 @@ samp_indx=1:4
 
 data(kegg.gs)
 
+# plot.gene.data = T works when gage is run. gives heatmap, scatterplot and expression table of significant genes 
+
 
 #run pathview.2 function
 # when run is not complete and pathway.id is not given, gage is run to find pathways and then pathview to visualize pathways
