@@ -10,7 +10,7 @@ library(pathview.2)
 
 #load gene data and kegg genesets
 
-require(gageData)
+library(gageData)
 data(hnrnp.cnts)
 cnts=hnrnp.cnts
 dim(cnts) #[1] 22932 8
