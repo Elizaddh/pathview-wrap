@@ -21,8 +21,10 @@ rundifftool <- function(diff.tool, gene.data, ref, samp){
         names(deseq2.fc)=rownames(deseq2.res)
         exp.fc=deseq2.fc
         png("Volcano_deseq2.png")
-        EnhancedVolcano(deseq2.res, x = 'log2FoldChange', y = 'pvalue', lab = rownames(deseq2.res))
+        a<- EnhancedVolcano(deseq2.res, x = 'log2FoldChange', y = 'pvalue', lab = rownames(deseq2.res))
+        a
         dev.off()
+        print("this is the png file")
    }
     if (diff.tool == "edgeR"){
     library(edgeR)
