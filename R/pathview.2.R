@@ -16,7 +16,7 @@ pathview.2 <- function( run ,diff.tool, gene.data= cnts, ref, samp, gsets, pathw
   else {
     if (run =="complete")
     {
-      logfoldchange <- rundifftool(diff.tool, gene.data, ref, samp)
+      logfoldchange <- rundifftool(diff.tool, gene.data, ref, samp, outname)
       print("diff tool run successful")
       fc.kegg.p <- run_path_analysis(logfoldchange, gsets)#, gene.data = gene.data, ref, samp, plot.gene.data = T )
       print("gage run successful")
