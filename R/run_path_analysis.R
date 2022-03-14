@@ -2,7 +2,7 @@
 #' @export
 
 run_path_analysis<- function(lf.c, gsets ){
-    fc.kegg.p <- gage(lf.c, gsets , ref = NULL, samp = NULL)
+    fc.kegg.p <- gage(lf.c, gsets , ref = NULL, samp = NULL,compare = "unpaired")
     
  
     #return(path.ids.2)
