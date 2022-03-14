@@ -20,7 +20,7 @@ rundifftool <- function(diff.tool, gene.data, ref, samp){
         deseq2.fc=deseq2.res$log2FoldChange
         names(deseq2.fc)=rownames(deseq2.res)
         exp.fc=deseq2.fc
-        pdf("Volcano_deseq2.pdf")
+        png("Volcano_deseq2.png")
         EnhancedVolcano(deseq2.res, x = 'log2FoldChange', y = 'pvalue', lab = rownames(deseq2.res))
         dev.off()
    }
