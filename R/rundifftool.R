@@ -39,7 +39,7 @@ rundifftool <- function(diff.tool, gene.data, ref, samp){
     names(edger.fc)=rownames(et$table)
     exp.fc=edger.fc
     tiff("Volcano_edgeR.tiff", units="in", width=15, height=15, res=300)
-    EnhancedVolcano(et$table, x = 'logFC', y = "PValue", lab = rownames(et$table))
+    plot(EnhancedVolcano(et$table, x = 'logFC', y = "PValue", lab = rownames(et$table)))
      dev.off()
     
     }
