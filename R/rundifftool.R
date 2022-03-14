@@ -22,7 +22,7 @@ rundifftool <- function(diff.tool, gene.data, ref, samp){
         names(deseq2.fc)=rownames(deseq2.res)
         exp.fc=deseq2.fc
         #pdf("Volcano_deseq2.pdf", width = 14,height= 14)
-        tiff("test.tiff", units="in", width=15, height=15, res=300)
+        tiff("Volcano_deseq2.tiff", units="in", width=15, height=15, res=300)
         plot(EnhancedVolcano(deseq2.res, x = 'log2FoldChange', y = 'pvalue', lab = rownames(deseq2.res)))
         #plot(x = 1:10, y = 1:10)
         dev.off()
