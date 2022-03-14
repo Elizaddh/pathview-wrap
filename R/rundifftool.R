@@ -21,9 +21,9 @@ rundifftool <- function(diff.tool, gene.data, ref, samp){
         deseq2.fc=deseq2.res$log2FoldChange
         names(deseq2.fc)=rownames(deseq2.res)
         exp.fc=deseq2.fc
-        pdf("Volcano_deseq2.pdf", width = 4,height= 4)
-        #EnhancedVolcano(deseq2.res, x = 'log2FoldChange', y = 'pvalue', lab = rownames(deseq2.res))
-        plot(x = 1:10, y = 1:10)
+        pdf("Volcano_deseq2.pdf", width = 14,height= 14)
+        EnhancedVolcano(deseq2.res, x = 'log2FoldChange', y = 'pvalue', lab = rownames(deseq2.res))
+        #plot(x = 1:10, y = 1:10)
         dev.off()
         print("this is the png file")
    }
