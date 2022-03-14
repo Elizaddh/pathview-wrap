@@ -1,5 +1,6 @@
 #' this is a function to run different diff expression analysis tools
 #' @export
+ library(EnhancedVolcano)
 rundifftool <- function(diff.tool, gene.data, ref, samp){
     grp.idx = NULL
     grp.idx[ref] <- "reference"
