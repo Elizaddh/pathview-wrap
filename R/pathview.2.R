@@ -1,5 +1,5 @@
 #' this is a function to run pathview.2 function
-#' @export
+#' @import pathview
 
 
 #' this is a function to run pathview.2 function
