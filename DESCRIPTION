@@ -11,9 +11,9 @@ Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.2
 Imports: 
-    gage,
-    gageData,
-    pathview,
-    DESeq2,
-    edgeR,
-    limma
+    gage (>=2.44.0),
+    gageData (>=2.32.0),
+    pathview (>= 1.34.0),
+    DESeq2 (>=1.34.0),
+    edgeR (>=3.36.0),
+    limma(>= 3.50.1)
