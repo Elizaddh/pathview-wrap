@@ -1,19 +1,16 @@
 Package: pathview.2
-Title: automated RNAseq and pathview (One Line, Title Case)
+Title: What the Package Does (One Line, Title Case)
 Version: 0.0.0.9000
 Authors@R: 
-    person("Eliza", "Dhungel", , "edhungel@uncc.edu", role = c("aut", "cre"),
+    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"),
            comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: automated RNAseq and pathview analysis. DESEQ2, limma or edgR, gage and pathview are run. 
+Description: What the package does (one paragraph).
 License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
     license
-Imports: 
-    gage,
-    gageData ,
-    DESeq2 ,
-    edgeR ,
-    limma
-Depends: 
-       pathview 
-RoxygenNote: 7.1.1
 Encoding: UTF-8
+Imports:
+        DESeq2, edgeR, limma, gage, EnhancedVolcano
+Depends: 
+        pathview
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.2
