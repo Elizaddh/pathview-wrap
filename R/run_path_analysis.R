@@ -1,4 +1,5 @@
 #' This is the function to run pathway analysis
+#' @import gage
 #' @export
 
 run_path_analysis<- function(lf.c, gsets ){
