@@ -12,7 +12,9 @@ pathview.2(
   samp,
   gsets,
   pathway.id,
-  both.dirs = list(gene = T, cpd = T)
+  both.dirs = list(gene = T, cpd = T),
+  plot.gene.data,
+  outname
 )
 }
 \description{

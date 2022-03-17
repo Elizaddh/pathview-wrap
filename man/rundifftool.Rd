@@ -4,7 +4,7 @@
 \alias{rundifftool}
 \title{this is a function to run different diff expression analysis tools}
 \usage{
-rundifftool(diff.tool, gene.data, ref, samp)
+rundifftool(diff.tool, gene.data, ref, samp, outname)
 }
 \description{
 this is a function to run different diff expression analysis tools
