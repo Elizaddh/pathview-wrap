@@ -2,7 +2,7 @@
 #' @import pathview
 #'
 #' @export
-pathview.2 <- function( run ,diff.tool, gene.data= cnts, ref, samp, gsets, pathway.id,  both.dirs = list(gene = T, cpd = T), plot.gene.data, outname, compare="paired")
+pathview.2 <- function( run ,diff.tool, gene.data= cnts, ref, samp, gsets, pathway.id,  both.dirs = list(gene = T, cpd = T), plot.gene.data, outname, compareval)
 {
   
   if(is.null(pathway.id)==FALSE){
@@ -14,7 +14,7 @@ pathview.2 <- function( run ,diff.tool, gene.data= cnts, ref, samp, gsets, pathw
     {
       logfoldchange <- rundifftool(diff.tool, gene.data, ref, samp, outname)
       print("diff tool run successful")
-      fc.kegg.p <- run_path_analysis(logfoldchange, gsets,ref=NULL, samp= NULL, compare )#, gene.data = gene.data, ref, samp, plot.gene.data = T )
+      fc.kegg.p <- run_path_analysis(logfoldchange, gsets,ref=NULL, samp= NULL, compare=compareval )#, gene.data = gene.data, ref, samp, plot.gene.data = T )
       print("gage run successful")
       print("now pathview")
       
@@ -33,7 +33,7 @@ pathview.2 <- function( run ,diff.tool, gene.data= cnts, ref, samp, gsets, pathw
                                                                               pathway.id = pid, out.suffix=diff.tool))
     }
     else{
-      fc.kegg.p <- run_path_analysis(gene.data, gsets,ref = ref, samp = samp, compare)#, gene.data = gene.data, ref, samp, plot.gene.data = T  )
+      fc.kegg.p <- run_path_analysis(gene.data, gsets,ref = ref, samp = samp, compare=compareval)#, gene.data = gene.data, ref, samp, plot.gene.data = T  )
       print("now pathview")
       path.ids.2<- rownames(fc.kegg.p$greater)[fc.kegg.p$greater[, "q.val"] < 0.1 &
                                                  + !is.na(fc.kegg.p$greater[, "q.val"])]
