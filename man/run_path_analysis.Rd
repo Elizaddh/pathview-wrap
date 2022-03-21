@@ -4,7 +4,7 @@
 \alias{run_path_analysis}
 \title{This is the function to run pathway analysis}
 \usage{
-run_path_analysis(lf.c, gsets,compare)
+run_path_analysis(lf.c, gsets,compareval)
 }
 \description{
 This is the function to run pathway analysis
