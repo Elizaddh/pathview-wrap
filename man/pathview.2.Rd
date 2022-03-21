@@ -14,7 +14,8 @@ pathview.2(
   pathway.id,
   both.dirs = list(gene = T, cpd = T),
   plot.gene.data,
-  outname
+  outname,
+  compare
 )
 }
 \description{
