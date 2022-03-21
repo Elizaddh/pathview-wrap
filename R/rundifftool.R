@@ -14,9 +14,9 @@ rundifftool <- function(diff.tool, gene.data, ref, samp, outname){
     {
    if (diff.tool == "deseq2")
     {
-        
+        library(DESeq2)
         print("Deseq2 is running")
-        coldat=DESeq2::DataFrame(grp=factor(grp.idx))
+        coldat=DataFrame(grp=factor(grp.idx))
         dds <- DESeq2::DESeqDataSetFromMatrix(gene.data, colData=coldat, design = ~ grp)
         dds <- DESeq2::DESeq(dds)
         deseq2.res <- results(dds)
