@@ -2,7 +2,7 @@
 #' @import pathview
 #'
 #' @export
-pathview.2 <- function( run ,diff.tool, gene.data= cnts, ref, samp, gsets, pathway.id,  both.dirs = list(gene = T, cpd = T), plot.gene.data, outname, compare)
+pathview.2 <- function( run ,diff.tool, gene.data= cnts, ref, samp, gsets, pathway.id,  both.dirs = list(gene = T, cpd = T), plot.gene.data, outname, compare="paired")
 {
   
   if(is.null(pathway.id)==FALSE){
