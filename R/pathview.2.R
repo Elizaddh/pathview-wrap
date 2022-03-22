@@ -57,7 +57,7 @@ pathview.2 <- function( run ,diff.tool, gene.data, ref, samp, outname, gsets ,co
   
   if (plot.gene.data==T ){#& is.null(pathway.id))  ){
     gs=unique(unlist(gsets[rownames(fc.kegg.p$greater)[1:3]]))
-    essData=gage::essGene(gs,gene.data , ref =ref, samp =samp)
+    essData=gage::essGene(gs,gene.data , ref =ref, samp =samp, compare = compare)
     for (gs in rownames(fc.kegg.p$greater)[1:3]) {
       outname = gsub(" |:|/", "_", substr(gs, 10, 100))
       gage::geneData(genes = gsets[[gs]], exprs = essData, ref = ref,
@@ -66,7 +66,7 @@ pathview.2 <- function( run ,diff.tool, gene.data, ref, samp, outname, gsets ,co
     }
     if(length(fc.kegg.p) > 2){
       gs=unique(unlist(gsets[rownames(fc.kegg.p$lesser)[1:3]]))
-      essData=gage::essGene(gs,gene.data , ref =ref, samp =samp)
+      essData=gage::essGene(gs,gene.data , ref =ref, samp =samp, compare = compare)
       for (gs in rownames(fc.kegg.p$lesser)[1:3]) {
         outname = gsub(" |:|/", "_", substr(gs, 10, 100))
         gage::geneData(genes = gsets[[gs]], exprs = essData, ref = ref,
