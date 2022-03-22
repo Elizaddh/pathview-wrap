@@ -2,7 +2,7 @@
 #' @import pathview
 #'
 #' @export
-pathview.2 <- function( run="complete" ,diff.tool="deseq2", gene.data, ref=NULL, samp=NULL, gsets, pathway.id,  both.dirs = list(gene = T, cpd = T), plot.gene.data, outname, compare,species)
+pathview.2 <- function( run ,diff.tool, gene.data, ref, samp, outname, gsets ,compare, both.dirs = list(gene = T, cpd = T),  pathway.id =NULL,  species)
 {
   
   if(is.null(pathway.id)==FALSE){
