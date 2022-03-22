@@ -2,11 +2,11 @@
 #' @import pathview
 #'
 #' @export
-pathview.2 <- function( run ,diff.tool, gene.data, ref, samp, outname, gsets ,compare, both.dirs = list(gene = T, cpd = T),  pathway.id =NULL,  species)
+pathview.2 <- function( run ,diff.tool, gene.data, ref, samp, outname, gsets ,compare, both.dirs = list(gene = T, cpd = T),  pathway.id =NULL,  species, plot.gene.data=T)
 {
   
   if(is.null(pathway.id)==FALSE){
-    pathview::pathview( gene.data = gene.data,  pathway.id = pathway.id , out.suffix=outname)
+    pathview::pathview( gene.data = gene.data,  pathway.id = pathway.id , out.suffix=outname, plot.gene.data)
     
   }
   else {
@@ -30,7 +30,7 @@ pathview.2 <- function( run ,diff.tool, gene.data, ref, samp, outname, gsets ,co
       }
       #visualize pathway  
       pv.out.list <- sapply(na.omit(path.ids.2[1:6]), function(pid) pathview::pathview( gene.data = logfoldchange, 
-                                                                              pathway.id = pid, out.suffix=diff.tool,species=species))
+                                                                              pathway.id = pid, out.suffix=diff.tool,species=species, plot.gene.data=T))
     }
     else{
       fc.kegg.p <- run_path_analysis(gene.data, gsets,ref = ref, samp = samp, compare=compare)#, gene.data = gene.data, ref, samp, plot.gene.data = T  )
@@ -46,7 +46,7 @@ pathview.2 <- function( run ,diff.tool, gene.data, ref, samp, outname, gsets ,co
         
         #visualize pathway  
         pv.out.list <- sapply(na.omit(path.ids.2[1:6]), function(pid) pathview::pathview( gene.data =  gene.data, 
-                                                                                pathway.id = pid, out.suffix=diff.tool,species))}
+                                                                                pathway.id = pid, out.suffix=diff.tool,species, plot.gene.data=T))}
       
       
     }
