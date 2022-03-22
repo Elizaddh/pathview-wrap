@@ -53,9 +53,6 @@ pathview.2 <- function( run="complete" ,diff.tool="deseq2", gene.data, ref=NULL,
     
   }
   
-  
-  
-  
   #plot data
   
   if (plot.gene.data==T ){#& is.null(pathway.id))  ){
