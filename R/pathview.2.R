@@ -25,7 +25,7 @@ pathview.2 <- function( run ,diff.tool, gene.data, ref, samp, outname, gsets ,co
         print(length(fc.kegg.p)) 
         path.ids.l <- rownames(fc.kegg.p$less)[fc.kegg.p$less[, "q.val"] < 0.1 &
                                                  + !is.na(fc.kegg.p$less[,"q.val"])]
-        #path.ids.2 <- substr(c(path.ids.2[1:3], path.ids.l[1:3]), 1, 8)
+        path.ids.2 <- c(path.ids.2[1:3], path.ids.l[1:3])
         path.ids2 <- gsub("[^0-9.-]", "", sapply(stringr::str_split(path.ids.2, " ", 2),"[[",1))
       }
       #visualize pathway  
@@ -41,7 +41,7 @@ pathview.2 <- function( run ,diff.tool, gene.data, ref, samp, outname, gsets ,co
       if(length(fc.kegg.p) > 2){
         path.ids.l <- rownames(fc.kegg.p$less)[fc.kegg.p$less[, "q.val"] < 0.1 &
                                                  + !is.na(fc.kegg.p$less[,"q.val"])]
-        #path.ids.2 <- substr(c(path.ids.2[1:3], path.ids.l[1:3]), 1, 8)
+        path.ids.2 <- c(path.ids.2[1:3], path.ids.l[1:3])
         path.ids2 <- gsub("[^0-9.-]", "", sapply(stringr::str_split(path.ids.2, " ", 2),"[[",1))
         
         #visualize pathway  
