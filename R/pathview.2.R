@@ -26,7 +26,7 @@ pathview.2 <- function( run ,diff.tool, gene.data, ref, samp, outname, gsets ,co
         path.ids.l <- rownames(fc.kegg.p$less)[fc.kegg.p$less[, "q.val"] < 0.1 &
                                                  + !is.na(fc.kegg.p$less[,"q.val"])]
         path.ids.2 <- c(path.ids.2[1:3], path.ids.l[1:3])
-        path.ids2 <- gsub("[^0-9.-]", "", sapply(stringr::str_split(path.ids.2, " ", 2),"[[",1))
+        path.ids.2 <- gsub("[^0-9.-]", "", sapply(stringr::str_split(path.ids.2, " ", 2),"[[",1))
       }
       #visualize pathway  
       pv.out.list <- sapply(na.omit(path.ids.2[1:6]), function(pid) pathview::pathview( gene.data = logfoldchange, 
@@ -42,7 +42,7 @@ pathview.2 <- function( run ,diff.tool, gene.data, ref, samp, outname, gsets ,co
         path.ids.l <- rownames(fc.kegg.p$less)[fc.kegg.p$less[, "q.val"] < 0.1 &
                                                  + !is.na(fc.kegg.p$less[,"q.val"])]
         path.ids.2 <- c(path.ids.2[1:3], path.ids.l[1:3])
-        path.ids2 <- gsub("[^0-9.-]", "", sapply(stringr::str_split(path.ids.2, " ", 2),"[[",1))
+        path.ids.2 <- gsub("[^0-9.-]", "", sapply(stringr::str_split(path.ids.2, " ", 2),"[[",1))
         
         #visualize pathway  
         pv.out.list <- sapply(na.omit(path.ids.2[1:6]), function(pid) pathview::pathview( gene.data =  gene.data, 
