@@ -1,0 +1,33 @@
+genome	species	annotation
+BSgenome.Alyrata.JGI.v1	Arabidopsis lyrata	NA
+BSgenome.Amellifera.UCSC.apiMel2	Apis mellifera	NA
+BSgenome.Aofficinalis.NCBI.V1	Arabidopsis officinalis	NA
+BSgenome.Athaliana.TAIR.TAIR9	Arabidopsis thaliana	TxDb.Athaliana.BioMart.plantsmart51
+BSgenome.Btaurus.UCSC.bosTau9	Bos taurus	TxDb.Btaurus.UCSC.bosTau9.refGene
+BSgenome.Carietinum.NCBI.v1	Cicer arietinum	NA
+BSgenome.Celegans.UCSC.ce11	Caenorhabditis elegans	TxDb.Celegans.UCSC.ce11.ensGene
+BSgenome.Cfamiliaris.UCSC.canFam3	Canis lupus familiaris	TxDb.Cfamiliaris.UCSC.canFam5.refGene
+BSgenome.Cjacchus.UCSC.calJac4	Callithrix jacchus	NA
+BSgenome.CneoformansVarGrubiiKN99.NCBI.ASM221672v1	Cryptococcus neoformans var. grubii KN99	NA
+BSgenome.Creinhardtii.JGI.v5.6	Chlamydomonas reinhardtii	NA
+BSgenome.Dmelanogaster.UCSC.dm6	Drosophila melanogaster	TxDb.Dmelanogaster.UCSC.dm6.ensGene
+BSgenome.Drerio.UCSC.danRer11	Danio rerio	TxDb.Drerio.UCSC.danRer11.refGene
+BSgenome.Dvirilis.Ensembl.dvircaf1	Drosophila virilis	NA
+BSgenome.Ecoli.NCBI.20080805	Escherichia coli	NA
+BSgenome.Gaculeatus.UCSC.gasAcu1	Gasterosteus aculeatus	NA
+BSgenome.Ggallus.UCSC.galGal6	Gallus gallus	TxDb.Ggallus.UCSC.galGal6.refGene
+BSgenome.Hsapiens.UCSC.hg38	Homo sapiens	TxDb.Hsapiens.UCSC.hg38.knownGene
+BSgenome.Mdomestica.UCSC.monDom5	Monodelphis domestica	NA
+BSgenome.Mfascicularis.NCBI.6.0	Macaca fascicularis	NA
+BSgenome.Mfuro.UCSC.musFur1	Mustela putorius furo	NA
+BSgenome.Mmulatta.UCSC.rheMac10	Macaca mulatta	TxDb.Mmulatta.UCSC.rheMac10.refGene
+BSgenome.Mmusculus.UCSC.mm39	Mus musculus	TxDb.Mmusculus.UCSC.mm39.refGene
+BSgenome.Osativa.MSU.MSU7	Oryza sativa Japonica	NA
+BSgenome.Ppaniscus.UCSC.panPan2	Pan paniscus	NA
+BSgenome.Ptroglodytes.UCSC.panTro6	Pan troglodytes	TxDb.Ptroglodytes.UCSC.panTro6.refGene
+BSgenome.Rnorvegicus.UCSC.rn7	Rattus norvegicus	TxDb.Rnorvegicus.UCSC.rn7.refGene
+BSgenome.Scerevisiae.UCSC.sacCer3	Saccharomyces cerevisiae	TxDb.Scerevisiae.UCSC.sacCer3.sgdGene
+BSgenome.Sscrofa.UCSC.susScr11	Sus scrofa	TxDb.Sscrofa.UCSC.susScr11.refGene
+BSgenome.Tgondii.ToxoDB.7.0	Toxoplasma gondii ME49	NA
+BSgenome.Tguttata.UCSC.taeGut2	Taeniopygia guttata	NA
+BSgenome.Vvinifera.URGI.IGGP12Xv2	Vitis vinifera	NA
